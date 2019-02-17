@@ -9,9 +9,9 @@ public class BallStats : MonoBehaviour {
 	Restarter restarter; // reference to restarter script
 	public Image kickedImage; // image shown when kicked. make screen overlay slightly red
 	public float flashSpeed = 5f; // speed the image fades at
-	public Color flashColor = new Color (1f, 0f, 0f, 0.1f); //color of the image
+	public Color flashColor = new Color (1f, 0f, 0f, 0.2f); //color of the image
 	bool isDead; // is out of dignity
-	bool kicked; // true when player is kicked
+	bool isKicked; // true when player is kicked
 
 	// Use this for initialization
 	void Start () {
@@ -25,18 +25,19 @@ public class BallStats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (kicked) {
+		if (isKicked) {
 			kickedImage.color = flashColor;
 		} 
 		else {
 			kickedImage.color = Color.Lerp (kickedImage.color, Color.clear, flashSpeed * Time.deltaTime);
 		}
-		kicked = false; //reset kicked flag
+		isKicked = false; //reset kicked flag
 	}
 
 	public void loseDignity (int amount)
 	{
-		kicked = true;
+		isKicked = true;
+
 		currentDignity -= amount; 
 		dignitySlider.value = currentDignity;
 		if (currentDignity <= 0 && !isDead) {
