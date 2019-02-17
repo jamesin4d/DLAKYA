@@ -30,7 +30,7 @@ public class JerkAttack : MonoBehaviour
 		}
 	}
 
-	void onCollisionExit(Collision other){
+	void OnCollisionExit(Collision other){
 		if (other.gameObject == player) {
 			playerInRange = false;
 		}
