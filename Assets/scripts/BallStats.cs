@@ -9,7 +9,7 @@ public class BallStats : MonoBehaviour {
 	Restarter restarter; // reference to restarter script
 	public Image kickedImage; // image shown when kicked. make screen overlay slightly red
 	public float flashSpeed = 5f; // speed the image fades at
-	public Color flashColor = new Color (1f, 0f, 0f, 0.1f); //color of the image
+	public Color flashColor = new Color (1f, 0f, 0f, 0.2f); //color of the image
 	bool isDead; // is out of dignity
 	bool isKicked; // true when player is kicked
 
