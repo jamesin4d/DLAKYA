@@ -15,7 +15,7 @@ public class Restarter : MonoBehaviour
             }
         }
 		
-	private void resetActiveScene(){
+	public void resetActiveScene(){
 		currentScene = SceneManager.GetActiveScene ();
 		SceneManager.LoadScene (currentScene.name);
 	}
