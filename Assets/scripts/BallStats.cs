@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+
 public class BallStats : MonoBehaviour {
 	public int startingDignity = 100;
 	public int currentDignity;

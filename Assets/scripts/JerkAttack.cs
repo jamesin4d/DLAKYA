@@ -24,15 +24,16 @@ public class JerkAttack : MonoBehaviour
 		//}
 		if (other.gameObject == player) {
 			playerInRange = true;
-			if (player.GetComponent<Rigidbody> ()) {
-				player.GetComponent<Rigidbody>().AddForce(1,5,kickForce, ForceMode.Impulse);
-			}
+			Debug.Log ("collision enter");
+
 		}
 	}
 
 	void onCollisionExit(Collision other){
+		
 		if (other.gameObject == player) {
 			playerInRange = false;
+			Debug.Log ("collision exit");
 		}
 	}
 
@@ -42,6 +43,11 @@ public class JerkAttack : MonoBehaviour
 		if (ballStats.currentDignity > 0) {
 			ballStats.loseDignity (kickDamage);
 		}
+		if (player.GetComponent<Rigidbody> ()) {
+			player.GetComponent<Rigidbody>().AddForce(1,5,kickForce, ForceMode.Impulse);
+
+		}
+		playerInRange = false;
 
 
 	}
