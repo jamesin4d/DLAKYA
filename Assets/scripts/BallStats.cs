@@ -18,6 +18,10 @@ public class BallStats : MonoBehaviour {
 	void Start () {
 		restarter = GetComponent <Restarter> ();
 		currentDignity = startingDignity;
+
+		// if the links haven't been set in this level.
+		if(dignitySlider == null) dignitySlider = GameObject.Find("DignitySlider").GetComponent<Slider>();
+		if(kickedImage == null) kickedImage = GameObject.Find("kickedImage").GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
@@ -34,6 +38,7 @@ public class BallStats : MonoBehaviour {
 	public void loseDignity (int amount)
 	{
 		isKicked = true;
+
 		currentDignity -= amount; 
 		dignitySlider.value = currentDignity;
 		if (currentDignity <= 0 && !isDead) {
@@ -42,6 +47,6 @@ public class BallStats : MonoBehaviour {
 	}
 	void Death() {
 		isDead = true;
-		restarter.resetActiveScene ();
+		restarter.resetActiveScene();
 	}
 }

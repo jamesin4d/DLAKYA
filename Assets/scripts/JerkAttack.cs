@@ -29,8 +29,12 @@ public class JerkAttack : MonoBehaviour
 		}
 	}
 
+<<<<<<< HEAD
 	void onCollisionExit(Collision other){
 		
+=======
+	void OnCollisionExit(Collision other){
+>>>>>>> origin/master
 		if (other.gameObject == player) {
 			playerInRange = false;
 			Debug.Log ("collision exit");
