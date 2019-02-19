@@ -3,7 +3,7 @@ using System.Collections;
 
 public class JerkAttack : MonoBehaviour
 {
-	public float timeBetweenKicks = 0.5f;
+	public float timeBetweenKicks = 0.7f;
 	public int kickDamage = 10;
 	public int kickForce = 10;
 	GameObject player;
