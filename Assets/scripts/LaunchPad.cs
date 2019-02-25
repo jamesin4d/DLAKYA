@@ -13,6 +13,9 @@ public class LaunchPad : MonoBehaviour {
 
 	[Tooltip("If this object can be moved through, it is a funnel. Ignores launchDirection and shoots backwards.")]
 	public bool isFunnel = false;
+	
+	[Tooltip("If checked, velocity is set to zero - similar to Donkey Kong Country barrels.")]
+	public bool killVelocity = false;
 
 	void Start() {
 		if (isFunnel) {
@@ -25,6 +28,7 @@ public class LaunchPad : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player")) {
 			Rigidbody rb = other.GetComponent<Rigidbody>();
 			if(rb != null) {
+				if(killVelocity) rb.velocity = Vector3.zero;
 				rb.AddForce(launchDirection * launchForce, ForceMode.Impulse);
 			}
 		}
