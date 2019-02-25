@@ -16,8 +16,8 @@ public class BallStats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		restarter = GetComponent <Restarter> ();
-		restarter = new Restarter (); // gotta instanciate this 
+		restarter = this.gameObject.AddComponent<Restarter> ();
+		//restarter = new Restarter (); // gotta instanciate this 
 		currentDignity = startingDignity;
 
 		// if the links haven't been set in this level.
