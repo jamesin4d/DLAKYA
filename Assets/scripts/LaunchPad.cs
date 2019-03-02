@@ -28,7 +28,10 @@ public class LaunchPad : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player")) {
 			Rigidbody rb = other.GetComponent<Rigidbody>();
 			if(rb != null) {
-				if(killVelocity) rb.velocity = Vector3.zero;
+				if(killVelocity) {
+					rb.velocity = Vector3.zero;
+					other.transform.position = this.transform.position;
+				}
 				rb.AddForce(launchDirection * launchForce, ForceMode.Impulse);
 			}
 		}
