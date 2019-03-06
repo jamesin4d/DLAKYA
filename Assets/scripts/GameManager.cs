@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 		}
 		private void SpawnJerks() {
 			for (int i = 0; i < AIS.Length; i++) {
+				
 				Debug.Log ("supposed to be instantiating");
 				AIS [i].instance = Instantiate (AIPrefabs [i], AIS [i].spawnpoint.position, AIS [i].spawnpoint.rotation) as GameObject;
 				AIS [i].SetupAI (wayPointsForAI);

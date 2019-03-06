@@ -20,6 +20,8 @@ public class LaunchPad : MonoBehaviour {
 	void Start() {
 		if (isFunnel) {
 			launchDirection = this.transform.forward;
+		} else {
+			launchDirection = this.transform.up;
 		}
 	}
 
@@ -29,6 +31,7 @@ public class LaunchPad : MonoBehaviour {
 			Rigidbody rb = other.GetComponent<Rigidbody>();
 			if(rb != null) {
 				if(killVelocity) rb.velocity = Vector3.zero;
+				if(isFunnel) other.transform.position = this.transform.position;
 				rb.AddForce(launchDirection * launchForce, ForceMode.Impulse);
 			}
 		}
