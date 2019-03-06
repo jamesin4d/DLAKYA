@@ -20,8 +20,7 @@ public class StateController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		jerkAttack = GetComponent<JerkAttack> ();
-		navMeshAgent = GetComponent<NavMeshAgent> ();
+		//navMeshAgent = this.GetComponent<NavMeshAgent> ();
 	}
 
 	public void SetupAI(bool activationFromManager, List<Transform> waypointsFromManager)
@@ -29,12 +28,13 @@ public class StateController : MonoBehaviour
 		waypointList = waypointsFromManager;
 		aiActive = activationFromManager;
 		if (aiActive) {
+			navMeshAgent = GetComponent<NavMeshAgent> ();
 			navMeshAgent.enabled = true;
 		} else {
 			navMeshAgent.enabled = false;
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -47,7 +47,7 @@ public class StateController : MonoBehaviour
 	{
 		if (currentState != null && eyes != null) {
 			Gizmos.color = currentState.sceneGizmoColor;
-			Gizmos.DrawWireSphere (eyes.position, AIStats.lookSphereCastRadius);
+			Gizmos.DrawWireSphere (eyes.position, aistats.lookSphereCastRadius);
 		}
 	}
 	public void TransitionToState(State nextState){

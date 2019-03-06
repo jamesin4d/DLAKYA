@@ -6,7 +6,7 @@ public class AIStats : ScriptableObject
 {
 	public float moveSpeedMultiplier = 1;
 	public float lookRange = 40f;
-	public static float lookSphereCastRadius = 1f;
+	public float lookSphereCastRadius = 1f;
 	public float kickRange = 1f;
 	public float kickRate = 1f;
 	public float kickForce = 10f;

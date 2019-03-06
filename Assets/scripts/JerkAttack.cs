@@ -39,14 +39,14 @@ public class JerkAttack : MonoBehaviour
 		}
 	}
 
-	void Kick(){
+	public void Kick(float force, float damage){
 		timer = 0f;
 		Debug.Log ("being kicked");
 		if (ballStats.currentDignity > 0) {
-			ballStats.loseDignity (kickDamage);
+			ballStats.loseDignity (Mathf.RoundToInt(damage));
 		}
 		if (player.GetComponent<Rigidbody> ()) {
-			player.GetComponent<Rigidbody>().AddForce(1,5,kickForce, ForceMode.Impulse);
+			player.GetComponent<Rigidbody>().AddForce(1,5,force, ForceMode.Impulse);
 
 		}
 		playerInRange = false;
@@ -59,11 +59,11 @@ public class JerkAttack : MonoBehaviour
 	void Update ()
 	{
 		//Debug.Log (playerInRange);
-		timer += Time.deltaTime;
-		if(timer >= timeBetweenKicks && playerInRange && ballStats.currentDignity>0)
-		{ 
-			Kick ();
-		}
+		//timer += Time.deltaTime;
+		//if(timer >= timeBetweenKicks && playerInRange && ballStats.currentDignity>0)
+		//{ 
+		//	Kick ();
+		//}
 	
 	}
 }
