@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 			Debug.Log ("game man start");
 		}
 		private void SpawnJerks() {
+			Debug.Log ("the spawnjerks method is being called");
 			for (int i = 0; i < AIS.Length; i++) {
 				
 				Debug.Log ("supposed to be instantiating");
