@@ -13,10 +13,12 @@ public class LookDecision : Decision {
 
 	private bool Look(StateController controller)
 	{
+		Debug.Log ("looking");
 		RaycastHit hit;
 		Debug.DrawRay (controller.eyes.position, controller.eyes.forward.normalized * controller.aistats.lookRange, Color.green);
 		if (Physics.SphereCast (controller.eyes.position, controller.aistats.lookSphereCastRadius, controller.eyes.forward, out hit, controller.aistats.lookRange)
 		    && hit.collider.CompareTag ("Player")) {
+			Debug.Log ("spotted");
 			controller.chaseTarget = hit.transform;
 			return true;
 		} else {

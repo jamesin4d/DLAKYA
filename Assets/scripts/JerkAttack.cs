@@ -59,7 +59,7 @@ public class JerkAttack : MonoBehaviour
 	void Update ()
 	{
 		//Debug.Log (playerInRange);
-		//timer += Time.deltaTime;
+		timer += Time.deltaTime;
 		//if(timer >= timeBetweenKicks && playerInRange && ballStats.currentDignity>0)
 		//{ 
 		//	Kick ();

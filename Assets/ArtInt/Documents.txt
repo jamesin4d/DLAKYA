@@ -1,0 +1,49 @@
+﻿Alright, I hate writing documentation. 
+The main files are Action, State,Transition, Decision,StateController
+Action and decision are abstract scriptable objects.
+meaning when you write a new action or decision script you override the Act/Decision
+methods respectively. See LookDecision/PatrolAction.
+
+An AI gets a statecontroller component, the only monobehaviour class in here i think
+this statecontroller handles the updating of the AI by calling the currentState.UpdateState
+passing in itself as an argument.
+the currentState runs the actions present in an array of actions you give it
+then checks the transitions available in another array.
+AI also get an eyes transform to handle where they are looking at.
+this is all present in the AI prefab.
+
+creating Decisions/actions/states is all done by navigating to
+ArtInt/Decision/ 
+or
+ArtInt/State/
+or
+ArtInt/Actions/
+and then rightclick -> create -> ArtInt -> what you want
+creating the asset automatically assigns the associated script
+so that a created look decision asset utilizes the LookDecision.cs script
+
+creating state assets is a little more difficult.
+but essentially the same process.
+navigate to ArtInt/States -> right click -> create -> ArtInt -> State
+Name the created asset what you wish and give it a unique scene gizmo color
+that way you can see the AI change states easily in the scene view. 
+it's pretty cool I know.
+
+click on your new state in the project and look at it in the inspector you see its
+got actions and transitions, these are the arrays the state class checks through 
+every frame. increase the size to desired amount, i've been going with 1 action per state..
+so increasing actions gives us one element with an action asset it expects. 
+these i explained earlier a bit and are fairly straightforward.
+the transitions are where it gets tricky.
+increasing the size of transitions gives you an element that expects:
+decision Decision asset 
+truestate State asset
+falsestate State asset
+the decision assets/scripts evaluate conditions and return either true or false
+if true -> transition to truestate 
+if false -> transition to falsestate
+
+and then every state you transition to will have sets of decisions it evaluates 
+to continue on with fluid AI behavior. we just havent gotten all that set up yet.
+
+I don't feel like typing anymore. 

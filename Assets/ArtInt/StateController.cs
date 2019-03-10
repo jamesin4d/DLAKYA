@@ -20,6 +20,7 @@ public class StateController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		jerkAttack = this.GetComponent<JerkAttack> ();
 		//navMeshAgent = this.GetComponent<NavMeshAgent> ();
 	}
 
