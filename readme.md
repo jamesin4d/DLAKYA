@@ -1,3 +1,5 @@
-Current editor = 5.6.6f2
+Current editor = 2019.4.5
 
-concise so the bots leave us alone.
+A crowd-developed video game. 
+
+Don't Let Assholes Kick You Around.
